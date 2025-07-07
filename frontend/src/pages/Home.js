@@ -1,5 +1,8 @@
 import React from "react";
 import backgroundImg from "../assets/background.png";
+import { GrDesktop } from "react-icons/gr";
+import { FaGraduationCap, FaUserGraduate } from "react-icons/fa";
+import { FaUserTie } from "react-icons/fa";
 
 const Home = () => {
   return (
@@ -20,6 +23,29 @@ const Home = () => {
           <button className="px-4 ml-5 py-2 bg-button w-32 lg:ml-20 mt-5 rounded hover:scale-105">
             Get Started
           </button>
+        </div>
+        <div className="flex items-center lg:ml-20 ml-5 mt-28 text-white gap-20 ">
+          <div className="flex items-center gap-4">
+            <GrDesktop className="text-xl lg:text-4xl" />
+            <div className="grid">
+              <h1 className="font-bold text-sm lg:text:lg">5K</h1>
+              <p className="font-medium text-xs lg:text:lg">Online Courses</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-4">
+            <FaUserTie className="text-xl lg:text-4xl" />
+            <div className="grid">
+              <h1 className="font-bold text-sm lg:text:lg">100+</h1>
+              <p className="font-medium text-xs lg:text:lg">Expert Tutors</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-4">
+            <FaGraduationCap className="text-xl lg:text-4xl" />
+            <div className="grid">
+              <h1 className="font-bold text-sm lg:text:lg">50K</h1>
+              <p className="font-medium text-xs lg:text:lg">Online Students</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
