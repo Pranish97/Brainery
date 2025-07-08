@@ -2,10 +2,52 @@ import React, { useState } from "react";
 import backgroundImg from "../assets/loginBackground.png";
 import logo from "../assets/loginLogo.png";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import SummaryApi from "../common";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const [showPwd, setShowPwd] = useState(false);
+  const [data, setData] = useState({
+    email: "",
+    password: "",
+  });
+  const navigate = useNavigate();
+
+  const handleOnChange = (e) => {
+    const { name, value } = e.target;
+
+    setData((prev) => {
+      return {
+        ...prev,
+        [name]: value,
+      };
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const response = await fetch(SummaryApi.login.url, {
+      method: SummaryApi.login.method,
+      credentials: "include",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    const dataResponse = await response.json();
+
+    if (dataResponse.success) {
+      toast.success(dataResponse.message);
+      navigate("/");
+    }
+
+    if (dataResponse.error) {
+      toast.error(dataResponse.message);
+    }
+  };
 
   return (
     <section
@@ -19,12 +61,15 @@ const Login = () => {
             <img src={logo} alt="Brainery logo" className="object-contain" />
           </div>
 
-          <form className="space-y-4">
+          <form className="space-y-4" onSubmit={handleSubmit}>
             <label className="block">
               <span className="ml-2">Email:</span>
               <input
                 type="email"
                 placeholder="Enter Email"
+                name="email"
+                value={data?.email}
+                onChange={handleOnChange}
                 className="mt-1 ml-2 w-full rounded border border-black px-3 py-2 outline-none"
               />
             </label>
@@ -36,6 +81,9 @@ const Login = () => {
                 <input
                   type={showPwd ? "text" : "password"}
                   placeholder="Enter Password"
+                  name="password"
+                  value={data?.password}
+                  onChange={handleOnChange}
                   className="w-full ml-2 rounded border border-black px-3 py-2 pr-10 outline-none"
                 />
 
