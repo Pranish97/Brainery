@@ -32,7 +32,7 @@ async function userLogin(req, res) {
       });
 
       const tokenOption = {
-        htttpOnly: true,
+        httpOnly: true,
         secure: true,
       };
 

@@ -1,12 +1,39 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import logo from "../assets/logo.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import SummaryApi from "../common";
+import { toast } from "react-toastify";
+import Context from "../context";
+import { setUserDetails } from "../store/userSlice";
 
 const Header = () => {
+  const user = useSelector((state) => state?.user?.user);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const handleLogout = async () => {
+    const response = await fetch(SummaryApi.userLogout.url, {
+      method: SummaryApi.userLogout.method,
+      credentials: "include",
+    });
+
+    const dataResponse = await response.json();
+
+    if (dataResponse.success) {
+      navigate("/login");
+      toast.success(dataResponse.message);
+      dispatch(setUserDetails(null));
+    }
+
+    if (dataResponse.error) {
+      toast.error(dataResponse.message);
+    }
+  };
   return (
     <header>
       <div className="mx-auto px-5 md:px-20 bg-navigation h-18 p-2 flex items-center justify-between">
@@ -31,14 +58,37 @@ const Header = () => {
         </div>
 
         <div className="hidden md:flex items-center gap-6">
-          <FaUser className="text-2xl text-white hover:scale-125 cursor-pointer" />
-          <FaShoppingCart className="text-2xl text-white hover:scale-125 cursor-pointer" />
-          <Link
-            to="/login"
-            className="border border-white text-white px-4 py-2 rounded hover:bg-white hover:text-black hover:scale-105"
-          >
-            Login
-          </Link>
+          {user?.role === "Admin" && (
+            <Link
+              to={"admin-panel"}
+              className=" text-white hover:scale-125 cursor-pointer"
+            >
+              Admin Panel
+            </Link>
+          )}
+          {user?._id && (
+            <FaUser className="text-2xl text-white hover:scale-125 cursor-pointer" />
+          )}
+
+          {user?._id && (
+            <FaShoppingCart className="text-2xl text-white hover:scale-125 cursor-pointer" />
+          )}
+
+          {user?._id ? (
+            <button
+              onClick={handleLogout}
+              className="border border-white text-white px-4 py-2 rounded hover:bg-white hover:text-black hover:scale-105"
+            >
+              Logout
+            </button>
+          ) : (
+            <Link
+              to="/login"
+              className="border border-white text-white px-4 py-2 rounded hover:bg-white hover:text-black hover:scale-105"
+            >
+              Login
+            </Link>
+          )}
         </div>
 
         {/* Mobile Responsive */}
@@ -93,13 +143,25 @@ const Header = () => {
             >
               Cart
             </Link>
-            <Link
-              to="/login"
-              onClick={() => setIsMenuOpen(false)}
-              className=" border border-white text-white px-3 py-1 rounded hover:bg-white hover:text-black"
-            >
-              Login
-            </Link>
+            {user?._id ? (
+              <button
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  handleLogout();
+                }}
+                className=" border border-white text-white px-3 py-1 rounded hover:bg-white hover:text-black"
+              >
+                Logout
+              </button>
+            ) : (
+              <Link
+                to="/login"
+                onClick={() => setIsMenuOpen(false)}
+                className=" border border-white text-white px-3 py-1 rounded hover:bg-white hover:text-black"
+              >
+                Login
+              </Link>
+            )}
           </div>
         </div>
       )}
