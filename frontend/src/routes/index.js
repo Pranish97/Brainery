@@ -6,6 +6,9 @@ import Contact from "../pages/Contact";
 import About from "../pages/About";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import AdminPanel from "../pages/AdminPanel";
+import AllUsers from "../pages/AllUsers";
+import AllCourses from "../pages/AllCourses";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +38,20 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+      },
+      {
+        path: "admin-panel",
+        element: <AdminPanel />,
+        children: [
+          {
+            path: "all-users",
+            element: <AllUsers />,
+          },
+          {
+            path: "all-courses",
+            element: <AllCourses />,
+          },
+        ],
       },
     ],
   },
