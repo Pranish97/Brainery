@@ -25,6 +25,10 @@ const SummaryApi = {
     url: `${backendApi}/api/update-user`,
     method: "post",
   },
+  addCourse: {
+    url: `${backendApi}/api/add-course`,
+    method: "post",
+  },
 };
 
 export default SummaryApi;
