@@ -1,15 +1,17 @@
 const express = require("express");
+const userRegister = require("../controller/users/userRegister");
+const userLogin = require("../controller/users/userLogin");
+const userDetails = require("../controller/users/userDetails");
+const userLogout = require("../controller/users/userLogout");
+const allUsers = require("../controller/users/allUsers");
+const updateUser = require("../controller/users/updateUser");
+const addCourses = require("../controller/course/addCourses");
+const getCourse = require("../controller/course/getCourse");
+const authToken = require("../middleware/authToken");
+const deleteCourse = require("../controller/course/deleteCourse");
+const updateCourse = require("../controller/course/updateCourse");
 
 const router = express.Router();
-
-const userRegister = require("../controller/userRegister");
-const userLogin = require("../controller/userLogin");
-const userDetails = require("../controller/userDetails");
-const authToken = require("../middleware/authToken");
-const userLogout = require("../controller/userLogout");
-const allUsers = require("../controller/allUsers");
-const updateUser = require("../controller/updateUser");
-const addCourses = require("../controller/addCourses");
 
 router.post("/register", userRegister);
 router.post("/login", userLogin);
@@ -20,5 +22,8 @@ router.get("/userLogout", userLogout);
 router.get("/all-users", authToken, allUsers);
 router.post("/update-user", authToken, updateUser);
 router.post("/add-course", authToken, addCourses);
+router.get("/get-course", authToken, getCourse);
+router.post("/delete-course", authToken, deleteCourse);
+router.post("/update-course", authToken, updateCourse);
 
 module.exports = router;

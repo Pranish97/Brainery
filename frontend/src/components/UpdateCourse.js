@@ -1,23 +1,23 @@
 import React, { useState } from "react";
-import { IoClose } from "react-icons/io5";
-import { MdDelete } from "react-icons/md";
+import { IoClose, IoCloudUpload } from "react-icons/io5";
 import courseCategory from "../helpers/courseCategory";
-import { IoCloudUpload } from "react-icons/io5";
+import { MdDelete } from "react-icons/md";
 import uploadImage from "../helpers/uploadImage";
 import SummaryApi from "../common";
 import { toast } from "react-toastify";
 
-const AddCourse = ({ onClose, fetchData }) => {
+const UpdateCourse = ({ course, onClose, fetchData }) => {
   const [data, setData] = useState({
-    title: "",
-    category: "",
-    price: "",
-    discountPrice: "",
-    description: "",
-    image: "",
-    hours: "",
-    creatorName: "",
-    language: "",
+    ...course,
+    title: course?.title,
+    category: course?.category,
+    price: course?.price,
+    discountPrice: course?.discountPrice,
+    description: course?.description,
+    image: course?.image,
+    hours: course?.hours,
+    creatorName: course?.creatorName,
+    language: course?.language,
   });
 
   const handleOnChange = (e) => {
@@ -49,8 +49,8 @@ const AddCourse = ({ onClose, fetchData }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const response = await fetch(SummaryApi.addCourse.url, {
-      method: SummaryApi.addCourse.method,
+    const response = await fetch(SummaryApi.updateCourse.url, {
+      method: SummaryApi.updateCourse.method,
       credentials: "include",
       headers: {
         "Content-Type": "application/json",
@@ -252,4 +252,4 @@ const AddCourse = ({ onClose, fetchData }) => {
   );
 };
 
-export default AddCourse;
+export default UpdateCourse;

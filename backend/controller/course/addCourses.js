@@ -1,15 +1,16 @@
-const addCoursePermssion = require("../helpers/permission");
-const courseModel = require("../models/courseModel");
+const addCoursePermission = require("../../helpers/permission");
+const courseModel = require("../../models/courseModel");
 
 async function addCourses(req, res) {
   try {
     const sessionUser = req?.userId;
 
-    if (!addCoursePermssion(sessionUser)) {
+    if (!addCoursePermission(sessionUser)) {
       throw new Error("Permission Denied!.");
     }
 
     const course = new courseModel(req.body);
+    console.log(course);
     const saveCourse = await course.save();
 
     res.status(200).json({

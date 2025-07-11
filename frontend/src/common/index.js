@@ -29,6 +29,18 @@ const SummaryApi = {
     url: `${backendApi}/api/add-course`,
     method: "post",
   },
+  getCourse: {
+    url: `${backendApi}/api/get-course`,
+    method: "get",
+  },
+  deleteCourse: {
+    url: `${backendApi}/api/delete-course`,
+    method: "post",
+  },
+  updateCourse: {
+    url: `${backendApi}/api/update-course`,
+    method: "post",
+  },
 };
 
 export default SummaryApi;
