@@ -1,6 +1,6 @@
 const userModel = require("../models/userModel");
 
-const addCoursePermssion = async (userId) => {
+const addCoursePermission = async (userId) => {
   const user = await userModel.findById(userId);
 
   if (user !== "Admin") {
@@ -10,4 +10,4 @@ const addCoursePermssion = async (userId) => {
   return true;
 };
 
-module.exports = addCoursePermssion;
+module.exports = addCoursePermission;

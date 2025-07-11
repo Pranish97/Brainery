@@ -60,7 +60,7 @@ const Header = () => {
         <div className="hidden md:flex items-center gap-6">
           {user?.role === "Admin" && (
             <Link
-              to={"admin-panel"}
+              to={"/admin-panel/all-courses"}
               className=" text-white hover:scale-125 cursor-pointer"
             >
               Admin Panel
