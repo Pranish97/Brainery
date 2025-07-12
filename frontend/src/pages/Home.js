@@ -3,10 +3,13 @@ import backgroundImg from "../assets/background.png";
 import { GrDesktop } from "react-icons/gr";
 import { FaGraduationCap, FaUserGraduate } from "react-icons/fa";
 import { FaUserTie } from "react-icons/fa";
+import HeroSection from "../components/HeroSection";
+import Card from "../components/Card";
+import AdmissionSection from "../components/AdmissionSection";
 
 const Home = () => {
   return (
-    <div className="h-screen w-full">
+    <div className="w-full">
       <div
         style={{ backgroundImage: `url(${backgroundImg})` }}
         className="bg-cover bg-center h-[650px] w-full "
@@ -48,6 +51,16 @@ const Home = () => {
           </div>
         </div>
       </div>
+
+      <div>
+        <HeroSection />
+      </div>
+
+      <Card category="artificial-intelligence" heading="Recommended For You" />
+
+      <Card category="ui-ux-design" heading="Popular For UI/UX Design" />
+
+      <AdmissionSection />
     </div>
   );
 };

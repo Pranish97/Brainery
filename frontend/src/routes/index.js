@@ -9,6 +9,8 @@ import Register from "../pages/Register";
 import AdminPanel from "../pages/AdminPanel";
 import AllUsers from "../pages/AllUsers";
 import AllCourses from "../pages/AllCourses";
+import Profile from "../pages/Profile";
+import Cart from "../pages/Cart";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +40,14 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+      },
+      {
+        path: "/profile",
+        element: <Profile />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
       {
         path: "admin-panel",
