@@ -67,11 +67,15 @@ const Header = () => {
             </Link>
           )}
           {user?._id && (
-            <FaUser className="text-2xl text-white hover:scale-125 cursor-pointer" />
+            <Link to={"/profile"}>
+              <FaUser className="text-2xl text-white hover:scale-125 cursor-pointer" />
+            </Link>
           )}
 
           {user?._id && (
-            <FaShoppingCart className="text-2xl text-white hover:scale-125 cursor-pointer" />
+            <Link to={"/cart"}>
+              <FaShoppingCart className="text-2xl text-white hover:scale-125 cursor-pointer" />
+            </Link>
           )}
 
           {user?._id ? (

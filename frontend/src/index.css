@@ -25,3 +25,7 @@ code {
 .bg-button{
   background-color: #d7bd88;
 }
+
+.scrollBar-none::-webkit-scrollbar{
+    display: none;
+}

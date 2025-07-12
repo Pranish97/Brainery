@@ -44,20 +44,19 @@ function App() {
   }, []);
 
   return (
-    <>
-      <Context.Provider
-        value={{
-          fetchUserDetails,
-        }}
-      >
-        <ToastContainer />
+    <Context.Provider value={{ fetchUserDetails }}>
+      <ToastContainer />
+
+      <div className="min-h-screen flex flex-col">
         <Header />
-        <main>
+
+        <main className="flex-grow">
           <Outlet />
         </main>
+
         {!shouldHideFooter && <Footer />}
-      </Context.Provider>
-    </>
+      </div>
+    </Context.Provider>
   );
 }
 

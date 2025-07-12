@@ -41,6 +41,10 @@ const SummaryApi = {
     url: `${backendApi}/api/update-course`,
     method: "post",
   },
+  categoryWiseCourse: {
+    url: `${backendApi}/api/category-course`,
+    method: "post",
+  },
 };
 
 export default SummaryApi;
