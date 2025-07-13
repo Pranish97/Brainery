@@ -21,7 +21,6 @@ const AllUsers = () => {
     });
 
     const dataResponse = await response.json();
-    console.log(dataResponse);
 
     if (dataResponse.success) {
       setAllUser(dataResponse?.data);

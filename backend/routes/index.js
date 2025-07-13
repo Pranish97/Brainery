@@ -11,6 +11,10 @@ const authToken = require("../middleware/authToken");
 const deleteCourse = require("../controller/course/deleteCourse");
 const updateCourse = require("../controller/course/updateCourse");
 const getCategoryWiseCourse = require("../controller/course/getCategoryWiseCourse");
+const courseDetails = require("../controller/course/courseDetails");
+const addToCart = require("../controller/users/addToCart");
+const getCartCourse = require("../controller/users/getCartCourse");
+const deleteCartCourse = require("../controller/users/deleteCartCourse");
 
 const router = express.Router();
 
@@ -29,5 +33,11 @@ router.post("/update-course", authToken, updateCourse);
 
 // Home Page
 router.post("/category-course", getCategoryWiseCourse);
+
+router.post("/course-detail", courseDetails);
+
+router.post("/add-to-cart", authToken, addToCart);
+router.get("/get-cartCourse", authToken, getCartCourse);
+router.post("/delete-cartCourse", authToken, deleteCartCourse);
 
 module.exports = router;

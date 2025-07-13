@@ -45,6 +45,22 @@ const SummaryApi = {
     url: `${backendApi}/api/category-course`,
     method: "post",
   },
+  courseDetail: {
+    url: `${backendApi}/api/course-detail`,
+    method: "post",
+  },
+  addToCart: {
+    url: `${backendApi}/api/add-to-cart`,
+    method: "post",
+  },
+  getCartCourse: {
+    url: `${backendApi}/api/get-cartCourse`,
+    method: "get",
+  },
+  deleteCartCourse: {
+    url: `${backendApi}/api/delete-cartCourse`,
+    method: "post",
+  },
 };
 
 export default SummaryApi;

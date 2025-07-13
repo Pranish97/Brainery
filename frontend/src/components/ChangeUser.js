@@ -9,7 +9,6 @@ const ChangeUser = ({ userId, name, email, role, onClose, fetchAllUsers }) => {
 
   const handleOnChange = (e) => {
     setUserRole(e.target.value);
-    console.log(e.target.value);
   };
 
   const updateUser = async () => {
