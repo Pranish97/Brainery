@@ -9,6 +9,7 @@ import SummaryApi from "./common";
 import Context from "./context";
 import { useDispatch } from "react-redux";
 import { setUserDetails } from "./store/userSlice";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const location = useLocation();

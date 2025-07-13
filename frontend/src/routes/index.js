@@ -11,6 +11,7 @@ import AllUsers from "../pages/AllUsers";
 import AllCourses from "../pages/AllCourses";
 import Profile from "../pages/Profile";
 import Cart from "../pages/Cart";
+import CourseDetails from "../pages/CourseDetails";
 
 const router = createBrowserRouter([
   {
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
       {
         path: "/cart",
         element: <Cart />,
+      },
+      {
+        path: "/course/:id",
+        element: <CourseDetails />,
       },
       {
         path: "admin-panel",
