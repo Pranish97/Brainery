@@ -1,6 +1,5 @@
-import React from "react";
 import { FaGoogle, FaSlack, FaTrello } from "react-icons/fa";
-import { SiNotion, SiMonday } from "react-icons/si";
+import { SiNotion } from "react-icons/si";
 import description from "../helpers/descriptions";
 
 const HeroSection = () => {

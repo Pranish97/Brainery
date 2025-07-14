@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import logo from "../assets/logo.png";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
 import { FaBars, FaTimes } from "react-icons/fa";
@@ -38,23 +38,43 @@ const Header = () => {
     <header>
       <div className="mx-auto px-5 md:px-20 bg-navigation h-18 p-2 flex items-center justify-between">
         <Link to="/">
-          <img src={logo} width={150} height={150} />
+          <img src={logo} width={150} height={150} alt="Logo" />
         </Link>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex gap-12 text-white text-sm">
-          <Link to="/" className="hover:scale-125">
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              `hover:scale-125 ${isActive ? "isActive" : ""}`
+            }
+          >
             Home
-          </Link>
-          <Link to="/courses" className="hover:scale-125">
+          </NavLink>
+          <NavLink
+            to="/courses"
+            className={({ isActive }) =>
+              `hover:scale-125 ${isActive ? "isActive" : ""}`
+            }
+          >
             Courses
-          </Link>
-          <Link to="/contact" className="hover:scale-125">
+          </NavLink>
+          <NavLink
+            to="/contact"
+            className={({ isActive }) =>
+              `hover:scale-125 ${isActive ? "isActive" : ""}`
+            }
+          >
             Contact Us
-          </Link>
-          <Link to="/about" className="hover:scale-125">
+          </NavLink>
+          <NavLink
+            to="/about"
+            className={({ isActive }) =>
+              `hover:scale-125 ${isActive ? "isActive" : ""}`
+            }
+          >
             About Us
-          </Link>
+          </NavLink>
         </div>
 
         <div className="hidden md:flex items-center gap-6">

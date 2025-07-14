@@ -1,9 +1,8 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { data, Outlet, useLocation } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import { useEffect } from "react";
 import SummaryApi from "./common";
 import Context from "./context";

@@ -9,6 +9,14 @@ const SummaryApi = {
     url: `${backendApi}/api/login`,
     method: "post",
   },
+  forgetPassword: {
+    url: `${backendApi}/api/forget-password`,
+    method: "post",
+  },
+  resetPassword: {
+    url: `${backendApi}/api/reset-password`,
+    method: "post",
+  },
   userDetails: {
     url: `${backendApi}/api/user-details`,
     method: "get",
@@ -60,6 +68,14 @@ const SummaryApi = {
   deleteCartCourse: {
     url: `${backendApi}/api/delete-cartCourse`,
     method: "post",
+  },
+  filterCourse: {
+    url: `${backendApi}/api/filter`,
+    method: "get",
+  },
+  fetchAllCourse: {
+    url: `${backendApi}/api/all-course`,
+    method: "get",
   },
 };
 
