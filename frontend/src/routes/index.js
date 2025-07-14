@@ -12,6 +12,8 @@ import AllCourses from "../pages/AllCourses";
 import Profile from "../pages/Profile";
 import Cart from "../pages/Cart";
 import CourseDetails from "../pages/CourseDetails";
+import ForgertPassword from "../pages/ForgertPassword";
+import ResetPassword from "../pages/ResetPassword";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +31,14 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: "/forget-password",
+        element: <ForgertPassword />,
+      },
+      {
+        path: "/reset-password/:token",
+        element: <ResetPassword />,
       },
       {
         path: "/courses",

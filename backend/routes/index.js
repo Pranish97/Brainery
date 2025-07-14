@@ -15,6 +15,10 @@ const courseDetails = require("../controller/course/courseDetails");
 const addToCart = require("../controller/users/addToCart");
 const getCartCourse = require("../controller/users/getCartCourse");
 const deleteCartCourse = require("../controller/users/deleteCartCourse");
+const filterCourse = require("../controller/course/filterCourse");
+const fetchAllCourse = require("../controller/course/fetchAllCourse");
+const forgetPassword = require("../controller/users/forgetPassword");
+const resetPassword = require("../controller/users/resetPassword");
 
 const router = express.Router();
 
@@ -22,6 +26,8 @@ router.post("/register", userRegister);
 router.post("/login", userLogin);
 router.get("/user-details", authToken, userDetails);
 router.get("/userLogout", userLogout);
+router.post("/forget-password", forgetPassword);
+router.post("/reset-password", resetPassword);
 
 // Admin Panel
 router.get("/all-users", authToken, allUsers);
@@ -33,8 +39,9 @@ router.post("/update-course", authToken, updateCourse);
 
 // Home Page
 router.post("/category-course", getCategoryWiseCourse);
-
+router.get("/filter/:category", filterCourse);
 router.post("/course-detail", courseDetails);
+router.get("/all-course", fetchAllCourse);
 
 router.post("/add-to-cart", authToken, addToCart);
 router.get("/get-cartCourse", authToken, getCartCourse);
