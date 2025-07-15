@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import { useState } from "react";
 import logo from "../assets/logo.png";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
@@ -7,7 +7,6 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import SummaryApi from "../common";
 import { toast } from "react-toastify";
-import Context from "../context";
 import { setUserDetails } from "../store/userSlice";
 
 const Header = () => {

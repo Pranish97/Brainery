@@ -1,11 +1,12 @@
 import React from "react";
 import backgroundImg from "../assets/background.png";
 import { GrDesktop } from "react-icons/gr";
-import { FaGraduationCap, FaUserGraduate } from "react-icons/fa";
+import { FaGraduationCap } from "react-icons/fa";
 import { FaUserTie } from "react-icons/fa";
 import HeroSection from "../components/HeroSection";
 import Card from "../components/Card";
 import AdmissionSection from "../components/AdmissionSection";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -23,9 +24,12 @@ const Home = () => {
             A powerful online learning management system designed to help you
             teach, learn, and grow — anytime, anywhere.
           </p>
-          <button className="px-4 ml-5 py-2 bg-button w-32 lg:ml-20 mt-5 rounded hover:scale-105">
+          <Link
+            to={"/courses"}
+            className="px-4 ml-5 py-2 bg-button w-32 lg:ml-20 mt-5 rounded hover:scale-105"
+          >
             Get Started
-          </button>
+          </Link>
         </div>
         <div className="flex items-center lg:ml-20 ml-5 mt-28 text-white gap-20 ">
           <div className="flex items-center gap-4">

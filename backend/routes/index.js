@@ -19,6 +19,9 @@ const filterCourse = require("../controller/course/filterCourse");
 const fetchAllCourse = require("../controller/course/fetchAllCourse");
 const forgetPassword = require("../controller/users/forgetPassword");
 const resetPassword = require("../controller/users/resetPassword");
+const addContact = require("../controller/users/addContact");
+const getContact = require("../controller/users/getContact");
+const deleteContact = require("../controller/users/deleteContact");
 
 const router = express.Router();
 
@@ -28,6 +31,7 @@ router.get("/user-details", authToken, userDetails);
 router.get("/userLogout", userLogout);
 router.post("/forget-password", forgetPassword);
 router.post("/reset-password", resetPassword);
+router.post("/add-contact", addContact);
 
 // Admin Panel
 router.get("/all-users", authToken, allUsers);
@@ -36,6 +40,8 @@ router.post("/add-course", authToken, addCourses);
 router.get("/get-course", authToken, getCourse);
 router.post("/delete-course", authToken, deleteCourse);
 router.post("/update-course", authToken, updateCourse);
+router.get("/get-contact", authToken, getContact);
+router.post("/delete-contact", authToken, deleteContact);
 
 // Home Page
 router.post("/category-course", getCategoryWiseCourse);
