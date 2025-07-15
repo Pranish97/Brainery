@@ -17,6 +17,10 @@ const SummaryApi = {
     url: `${backendApi}/api/reset-password`,
     method: "post",
   },
+  addContact: {
+    url: `${backendApi}/api/add-contact`,
+    method: "post",
+  },
   userDetails: {
     url: `${backendApi}/api/user-details`,
     method: "get",
@@ -76,6 +80,14 @@ const SummaryApi = {
   fetchAllCourse: {
     url: `${backendApi}/api/all-course`,
     method: "get",
+  },
+  getAllContact: {
+    url: `${backendApi}/api/get-contact`,
+    method: "get",
+  },
+  deleteContact: {
+    url: `${backendApi}/api/delete-contact`,
+    method: "post",
   },
 };
 

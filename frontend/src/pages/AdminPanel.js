@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { SiCoursera } from "react-icons/si";
 import { FiUsers } from "react-icons/fi";
 import { Link, Outlet, useNavigate } from "react-router-dom";
+import { GrContact } from "react-icons/gr";
 import { useEffect } from "react";
 
 const AdminPanel = () => {
@@ -13,7 +14,7 @@ const AdminPanel = () => {
     if (user?.role !== "Admin") {
       navigate("/");
     }
-  }, []);
+  }, [user?.role]);
 
   return (
     <div className="min-h-[calc(100vh-58px)] lg:flex hidden">
@@ -41,6 +42,16 @@ const AdminPanel = () => {
             >
               <SiCoursera />
               <span>Courses</span>
+            </Link>
+          </div>
+
+          <div className="flex text-lg items-center justify-center">
+            <Link
+              to="all-contact"
+              className="flex items-center gap-2 hover:scale-105"
+            >
+              <GrContact />
+              <span>Contact</span>
             </Link>
           </div>
         </div>

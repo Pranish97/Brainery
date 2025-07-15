@@ -14,6 +14,7 @@ import Cart from "../pages/Cart";
 import CourseDetails from "../pages/CourseDetails";
 import ForgertPassword from "../pages/ForgertPassword";
 import ResetPassword from "../pages/ResetPassword";
+import AllContact from "../pages/AllContact";
 
 const router = createBrowserRouter([
   {
@@ -75,6 +76,10 @@ const router = createBrowserRouter([
           {
             path: "all-courses",
             element: <AllCourses />,
+          },
+          {
+            path: "all-contact",
+            element: <AllContact />,
           },
         ],
       },

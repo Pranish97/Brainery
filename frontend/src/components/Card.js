@@ -14,7 +14,7 @@ const Card = ({ category, heading }) => {
 
   useEffect(() => {
     fetchData();
-  }, [category]);
+  }, [fetchData]);
 
   const scrollRight = () => {
     scrollRef.current.scrollLeft += 300;

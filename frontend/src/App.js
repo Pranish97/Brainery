@@ -41,7 +41,7 @@ function App() {
 
   useEffect(() => {
     fetchUserDetails();
-  }, []);
+  }, [fetchUserDetails]);
 
   return (
     <Context.Provider value={{ fetchUserDetails }}>
