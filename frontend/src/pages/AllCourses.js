@@ -102,7 +102,12 @@ const AllCourses = () => {
                   </p>
                 </td>
                 <td className="px-6 py-3 border">
-                  <img src={course?.image} width={100} height={100} />
+                  <img
+                    src={course?.image}
+                    width={100}
+                    height={100}
+                    alt={course?.title}
+                  />
                 </td>
                 <td className="px-6 py-3 border">{course?.hours}</td>
                 <td className="px-6 py-3 border">{course?.creatorName}</td>

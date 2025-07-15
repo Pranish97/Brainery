@@ -38,7 +38,7 @@ const CourseDetails = () => {
 
   useEffect(() => {
     fetchCourseDetail();
-  }, []);
+  }, [fetchCourseDetail]);
 
   return (
     <div className="container mx-auto my-9 px-4">
